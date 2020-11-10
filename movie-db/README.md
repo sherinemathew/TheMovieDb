@@ -1,6 +1,10 @@
 # The Movie DB
 Created By Sherine Mary Mathew.
 
+## Deployment details
+This web-app is hosted at Netlify
+https://5faa2dadd674a82c849b9274--jumbo-test-moviedb.netlify.app/
+
 ## Description
 ### Purpose
 The Movie DB is a simple single page application that allows users to explore a list of movies and TV series and their details.
