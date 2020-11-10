@@ -6,7 +6,7 @@
  display: flex;
  flex: 1 1 auto;
  flex-direction: column;
- background-color: #183a48 ;
+ background-color: #183a48;
 }
 
 .header {
@@ -58,6 +58,12 @@
   color: white;
 }
 
+.search-box {
+  padding: 24;
+  min-height: 280;
+  width: 100%;
+}
+
 /* Antd styles overrides */
 .ant-card-bordered {
   border: none !important;
@@ -72,3 +78,8 @@
 .ant-card-meta-title {
   color:white !important;
 }
+
+.ant-btn-primary {
+  background: #225e61 !important;
+}
+

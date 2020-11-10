@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import logo from '../images/theMovieDbLogo.svg';
 import { PopularMovieModel } from '../../models/PopularMovies';
-import { getPopularMovies } from '../../services/MovieAPI';
+import { getPopularMovies, searchMovie } from '../../services/MovieAPI';
 import { MovieList } from '../movieList/MovieList';
+import { SearchBox } from '../searchBox/SearchBox';
+import { Loader } from '../loader/loader';
 
-import { Row } from 'antd';
+import { Row, Alert } from 'antd';
 import 'antd/dist/antd.css';
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
   const [data, setData] = useState<PopularMovieModel[]>([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [searchResultsText, setSearchResultsText] = useState('Popular Movies');
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
@@ -21,6 +24,7 @@ function App() {
     setError(null);
     setData([]);
     if (!searchQuery || searchQuery === '') {
+      setSearchResultsText('Popular Movies');
       getPopularMovies()
         .then(resp => {
           setData(resp.results);
@@ -29,6 +33,16 @@ function App() {
           setError(message);
           setLoading(false);
         });
+    } else {
+      setSearchResultsText('Search Results');
+      searchMovie(searchQuery)
+        .then(resp => {
+          setData(resp.results);
+          setLoading(false);
+        }, (message) => {
+          setError(message);
+          setLoading(false);
+        })
     }
   }, [searchQuery]);
 
@@ -42,17 +56,28 @@ function App() {
             </a>
           </div>
         </header>
-        <div className="popular-movies">
-          <h1 className="heading">Popular Movies</h1>
-        </div>
         <div className="content">
-          <Row gutter={16} justify="center">
-            {data !== null && data.length > 0 && data.map((result, index) => (
-              <MovieList key={result.id}
-                {...result}
-              />
-            ))}
-          </Row>
+          <div className="search-box">
+            <SearchBox searchHandler={setSearchQuery} /> <br />
+            {loading &&
+              <Loader />
+            }
+            {error !== null &&
+              <div style={{ margin: '20px 0' }}>
+                <Alert message={error} type="error" />
+              </div>
+            }
+            <div className="popular-movies">
+          <h1 className="heading">{searchResultsText}</h1>
+            </div>
+            <Row gutter={16} justify="center">
+              {data !== null && data.length > 0 && data.map((result, index) => (
+                <MovieList key={result.id}
+                  {...result}
+                />
+              ))}
+            </Row>
+          </div>
         </div>
       </div>
     </div>

@@ -9,3 +9,9 @@ export async function getPopularMovies(): Promise<PopularMoviesResponse> {
     const response = await http<PopularMoviesResponse>(popularMoviesUrl);
     return response;
 }
+
+export async function searchMovie(query: string): Promise<PopularMoviesResponse> {
+    const popularMoviesUrl = `${movieUrlPrefix}/search/movie?api_key=${apiKey}&query=${query}&page=1`;
+    const response = await http<PopularMoviesResponse>(popularMoviesUrl);
+    return response;
+}
