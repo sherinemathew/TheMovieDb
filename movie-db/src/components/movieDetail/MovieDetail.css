@@ -1,0 +1,58 @@
+.banner {
+    width: 100%;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.banner-image {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex: 1 1 auto;
+    margin-left: 10px;
+}
+
+.card-image {
+    object-fit: cover;
+    margin-top: -150px;
+    z-index: 999;
+}
+
+.main {
+    background-color: #183a48;
+    height: 100vh;
+}
+
+.heading-text,
+.movie-overview {
+    color: white;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 50%;
+}
+
+h2 {
+    color: white;
+}
+
+.card-image img {
+    border-radius: 10px;
+}
+
+.back-link {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+}

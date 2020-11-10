@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import './App.css';
 import logo from '../images/theMovieDbLogo.svg';
-import { PopularMovieModel } from '../../models/PopularMovies';
+import { PopularMovieModel } from '../../models/MovieList';
 import { getPopularMovies, searchMovie } from '../../services/MovieAPI';
 import { MovieList } from '../movieList/MovieList';
 import { SearchBox } from '../searchBox/SearchBox';
-import { Loader } from '../loader/loader';
+import { Loader } from '../loader/Loader';
 
 import { Row, Alert } from 'antd';
 import 'antd/dist/antd.css';
@@ -50,7 +50,7 @@ function App() {
     <div className="app">
       <div className="layout">
         <header className="header">
-          <div className="logo-container">t
+          <div className="logo-container">
             <a href="/" className="logo">
               <img className="logo-image" src={logo} alt="Movie Db" />
             </a>
