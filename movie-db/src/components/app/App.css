@@ -1,38 +1,74 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.layout {
+ display: flex;
+ flex: 1 1 auto;
+ flex-direction: column;
+ background-color: #183a48 ;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 0 0 200px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.logo {
+  width: 50%;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height:50%
+}
+
+.logo-image {
+  object-fit: cover;
+}
+
+.logo-container {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.popular-movies {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+
+}
+
+.heading {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Antd styles overrides */
+.ant-card-bordered {
+  border: none !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ant-card-body {
+  background: #183a48 !important;
+  color:white !important;
+  border:0 !important;
+}
+
+.ant-card-meta-title {
+  color:white !important;
 }

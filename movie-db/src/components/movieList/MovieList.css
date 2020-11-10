@@ -1,0 +1,35 @@
+.title {
+    white-space: break-spaces !important;
+}
+.main {
+    background: #183a48;
+}
+.ant-card-meta-title {
+    white-space: break-spaces !important;
+}
+
+
+
+.good-rating {
+    position:absolute;
+    background:green;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.medium-rating {
+    position:absolute;
+    background: purple;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.low-rating {
+    position:absolute;
+    background: red;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.movie-card {
+    border-radius: 10px;
+}
